@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -13,6 +14,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true, // ให้มันสร้างตารางให้อัตโนมัติ
     }),
+
+    UserModule, //เพิ่มโมดูล users เข้ามาในระบบ
   ],
 })
 export class AppModule {}
