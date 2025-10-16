@@ -1,21 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './users/users.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost', // ถ้าใช้ XAMPP หรือ WAMP ก็ไม่ต้องแก้
-      port: 3306,
-      username: 'root',
-      password: '', // ถ้ามีรหัสผ่านใน MySQL ให้ใส่ตรงนี้
-      database: 'fullstack_db',
-      autoLoadEntities: true,
-      synchronize: true, // ให้มันสร้างตารางให้อัตโนมัติ
-    }),
-
-    UserModule, //เพิ่มโมดูล users เข้ามาในระบบ
-  ],
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
